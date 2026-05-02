@@ -18,34 +18,36 @@ int main(){
         return 1;
     }
 
-    while(!std::cin.eof()){
+    // Here is where you load up the Graph object
+    Edge* edges = new Edge[numOfEdges];
+    int edgeCount = 0;
+
+    while(!std::cin.eof() && edgeCount < numOfEdges){
         int startVertice;
         int endVertice;
         int weight;
-        int edgeCount = 0;
         std::cin >> startVertice;
         std::cin >> endVertice;
         std::cin >> weight;
-        Edge* newEdge = new Edge(startVertice, endVertice, weight);
-        newEdge->setWeight(weight);
-        // Here is where you load up the Graph object
-        Graph* g = new Graph();
-        g->loadGraph(numOfVertices, numOfEdges, newEdge, edgeCount);
-
-        g->printAdjMatrix();
-
-        int oddNodes[MAX_V];
-        int oddCount = g->getOddDegreeNodes(oddNodes);
-        g->printOddDegreeNodes(oddNodes, oddCount);
-
-        for (int i = 0; i < oddCount; i++){
-            g->dijkstra(oddNodes[i]);
-        }
-
-        delete newEdge;
-        delete g;
+        edges[edgeCount] = Edge(startVertice, endVertice, weight);
+        edgeCount++;
     }
 
+    Graph* g = new Graph();
+    g->loadGraph(numOfVertices, numOfEdges, edges, edgeCount);
+
     // And here is where you start working on the three tasks
+    g->printAdjMatrix();
+
+    int oddNodes[MAX_V];
+    int oddCount = g->getOddDegreeNodes(oddNodes);
+    g->printOddDegreeNodes(oddNodes, oddCount);
+
+    for (int i = 0; i < oddCount; i++){
+        g->dijkstra(oddNodes[i]);
+    }
+
+    delete[] edges;
+    delete g;
     return 0;
-};
+}
