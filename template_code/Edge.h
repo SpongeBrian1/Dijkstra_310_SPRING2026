@@ -8,9 +8,11 @@ class Edge{
         int weight;
     public:
         Edge();
-        Edge(int, int);
+        Edge(int start, int end, int w);
         int getWeight();
-        void setWeight(int);
+        int getStartVert();
+        int getEndVert();
+        void setWeight(int newWeight);
 };
 
 

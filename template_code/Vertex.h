@@ -11,6 +11,7 @@ class Vertex{
         int getDegree();
         void setIndex(int);
         void setDegree(int);
+        void incrementDegree();
 };
 
 

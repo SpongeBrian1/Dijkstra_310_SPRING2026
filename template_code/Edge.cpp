@@ -6,10 +6,18 @@ Edge::Edge(){
     this->weight = -1;
 }
 
-Edge::Edge(int start, int end){
+Edge::Edge(int start, int end, int w){
     this->startVert = start;
     this->endVert = end;
-    this->weight = 1;
+    this->weight = w;
+}
+
+int Edge::getStartVert(){
+    return this->startVert;
+}
+
+int Edge::getEndVert(){
+    return this->endVert;
 }
 
 int Edge::getWeight(){

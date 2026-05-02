@@ -1,4 +1,4 @@
-all: Main.o Edge.o Vertex.o 
+all: Main.o Edge.o Vertex.o Graph.o
 		g++ -g -Wall Main.o Edge.o Vertex.o -o dijkstra
 
 Edge.o: Edge.h Edge.cpp
@@ -6,6 +6,9 @@ Edge.o: Edge.h Edge.cpp
 
 Vertex.o: Vertex.h Vertex.cpp	
 		g++ -g -Wall -c Vertex.cpp
+
+Graph.o: Graph.h Graph.cpp vertex.h Edge.h
+		g++ -g -Wall -c Graph.cpp
 
 Main.o: Main.cpp
 		g++ -g -Wall -c Main.cpp

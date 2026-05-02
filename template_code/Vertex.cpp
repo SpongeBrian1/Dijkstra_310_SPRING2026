@@ -2,11 +2,11 @@
 
 Vertex::Vertex(){
     this->index = -1;
-    this->degree = -1;
+    this->degree = 0;
 }
 
 int Vertex::getIndex(){
-    return this->Index;
+    return this->index;
 }
 
 int Vertex::getDegree(){
@@ -19,4 +19,8 @@ void Vertex::setIndex(int index){
 
 void Vertex::setDegree(int deg){
     this->degree = deg;
+}
+
+void Vertex::incrementDegree(){
+    this->degree++;
 }
