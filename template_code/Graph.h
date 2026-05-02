@@ -26,7 +26,7 @@ public:
     void printOddDegreeNodes(int oddNodes[], int count);
 
     void dijkstra(int source);
-}
+};
 
 
 #endif

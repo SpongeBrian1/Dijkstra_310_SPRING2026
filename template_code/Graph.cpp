@@ -4,7 +4,7 @@
 
 // Constructor for the adjacency matrix and vertex array
 Graph::Graph() {
-    this-> = 0;
+    this->n = 0;
     this->m = 0;
     for (int i = 0; i < MAX_V; i++) {
         vertices[i].setIndex(i);
@@ -131,4 +131,4 @@ void Graph::dijkstra(int source) {
     }
     // blank line after each Dijkstra block
     std::cout << std::endl; 
-}
+};
